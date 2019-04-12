@@ -6,10 +6,36 @@ using System.Threading.Tasks;
 
 namespace C0727128
 {
-    class Program
+    class Program2
     {
-        static void Main(string[] args)
+
+        string[] Letters = new string[26]{ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+        "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "v", "x", "y", "z" };
+
+        public static void Main()
         {
+            Program2 orange = new Program2();
+            Console.WriteLine(orange.Gematria("universe"));
+        }
+
+        public int Gematria(string word)
+        {
+           int GematriaValue = 0;
+            for (int i = 0; i < word.Length; i++)
+            { GematriaValue += LetterValue(word[i].ToString()); }
+            return GematriaValue;
+        }
+
+        public int LetterValue(string letter)
+        {
+
+            int x = 0;
+            while (Letters[x] != letter)
+            {
+                if (Letters[x++] == letter) return -1;
+            }
+
+            return x+1;
         }
     }
 }
